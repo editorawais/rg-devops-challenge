@@ -37,15 +37,21 @@ Please document your solution thoroughly. Consider including the following:
 
 1. **Configuration Steps:**
    - Steps to set up Prometheus and Grafana.
+    ---> Modify docker-compose file and added the reference to the prometheus and Grafana containers. Addded their dependencies with volumes specification as well. 
    - Any additional tools or configurations you deemed necessary.
+    ---> Added prometheus yaml file as well.
 
 2. **Grafana Dashboards:**
    - Screenshots or snippets of your Grafana dashboards.
+     ---> Screenshots added. Please check
    - Explanation of the metrics displayed and their significance.
+     ---> I displayed http requests related matrics. They are of more significant as all parameters can be defined easily for example total requests and seconds count for every request.
 
 3. **Alerting Rules:**
    - Description of the alerts you set up in Grafana.
+      ---> created a new alert with name alert-1 and give alert after every 2m time 
    - Thresholds and conditions for triggering alerts.
+     ---> i created a threshold based of firing requests generated. Email configured for alerts as well.
 
 4. **Optional Improvements:**
    - If you made enhancements to the Docker Compose file or other components, explain the reasoning behind them.
