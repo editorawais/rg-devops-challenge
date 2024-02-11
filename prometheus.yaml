@@ -1,9 +1,19 @@
 global:
-  scrape_interval: 15s
+  scrape_interval: 5s
 
 scrape_configs:
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['localhost:2019']
-    metrics_path: /metrics
-    scheme: http
+- job_name: 'prometheus'
+  static_configs:
+  - targets: ['localhost:9090']
+
+- job_name: 'caddy'
+  static_configs:
+  - targets: ['caddy:2019']
+
+rule_files:
+- 'rules.yml'
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets: ['alertmanager:9093']

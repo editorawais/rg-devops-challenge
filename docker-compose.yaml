@@ -26,8 +26,9 @@ services:
     networks:
       - backend
     volumes:
-      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
-
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./rules.yml:/etc/prometheus/rules.yml
+      
   grafana:
     container_name: grafana
     image: grafana/grafana:latest
@@ -36,7 +37,19 @@ services:
     networks:
       - backend
     volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
       - ./grafana:/var/lib/grafana
 
+  alert-manager:
+    container_name: alertmanager
+    image: prom/alertmanager
+    volumes:
+      - "./alertmanager:/config"
+    command: --config.file=/config/alertmanager.yml --log.level=debug
+    networks:
+      - backend
+    ports:
+      - 9093:9093  
 networks:
   backend:
+    driver: bridge

@@ -37,24 +37,24 @@ Please document your solution thoroughly. Consider including the following:
 
 1. **Configuration Steps:**
    - Steps to set up Prometheus and Grafana.
-    ---> Modify docker-compose file and added the reference to the prometheus and Grafana containers. Addded their dependencies with volumes specification as well. 
-   - Any additional tools or configurations you deemed necessary.
-    ---> Added prometheus yaml file as well.
+    ---> Modify docker-compose file and added the reference to the prometheus and Grafana containers. Specified the docker volume so that it can be persistent. 
+    ---> Added prometheus yaml file as well. ALl other reference are presented as well. 
 
 2. **Grafana Dashboards:**
    - Screenshots or snippets of your Grafana dashboards.
-     ---> Screenshots added. Please check
+     ---> Screenshots added. Please check the reference url for Caddy Dashboard. [https://grafana.com/grafana/dashboards/13460-caddy/] Very beautiful built-in dashboard. 
    - Explanation of the metrics displayed and their significance.
-     ---> I displayed http requests related matrics. They are of more significant as all parameters can be defined easily for example total requests and seconds count for every request.
+     ---> There are many HTTP related matrics. Like the time to calculate one request response. 
 
 3. **Alerting Rules:**
    - Description of the alerts you set up in Grafana.
-      ---> created a new alert with name alert-1 and give alert after every 2m time 
+      ---> I set up slack based on official recommendation. [https://grafana.com/blog/2020/02/25/step-by-step-guide-to-setting-up-prometheus-alertmanager-with-slack-pagerduty-and-gmail/] It was more easy for me.
    - Thresholds and conditions for triggering alerts.
-     ---> i created a threshold based of firing requests generated. Email configured for alerts as well.
+     ---> i created a threshold based on TargetDown. 
 
 4. **Optional Improvements:**
    - If you made enhancements to the Docker Compose file or other components, explain the reasoning behind them.
+   ---> Please check all screenshots.
 
 
 ## Services
